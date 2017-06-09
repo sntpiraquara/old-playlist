@@ -36,9 +36,9 @@ body{
     <div class="col-xs-3">
         <h3>cadastrar musicas</h3>
         <?php if (isset($_SESSION['aviso'])) {
-                echo $_SESSION['aviso'];
-                unset($_SESSION['aviso']);
-        }?>
+    echo $_SESSION['aviso'];
+    unset($_SESSION['aviso']);
+}?>
         <form action="cadastrar.php" method="post">
                 <p><input type="text" name="nome" placeholder="Nome"></p>
                 <p><input type="text" name="artista" placeholder="Artista"></p>
@@ -93,7 +93,7 @@ body{
                     <td><i class="fa fa-user"></i> <?php echo $all->artista; ?></td>
                     <td><?php echo $all->tipo; ?></td>
                 </tr>
-                <?php } ?>
+                <?php }?>
             </tbody>
         </table>
     </div>

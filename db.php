@@ -2,11 +2,8 @@
 
 global $db;
 
-$db = new mysqli("localhost" , "root" , "123qwe" , "playList");
-
+$db = new mysqli("localhost", "root", "", "playlist");
 
 if ($db->connect_errno) {
-   header("location:ops.php");
+    exit('Não foi possível conectar a base de dados.');
 }
-
-
