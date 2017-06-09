@@ -34,7 +34,7 @@ body{
 </head>
 <body>
     <div class="col-xs-3">
-        <h3>cadastrar musicas</h3>
+        <h3>Cadastrar Musica</h3>
         <?php if (isset($_SESSION['aviso'])) {
     echo $_SESSION['aviso'];
     unset($_SESSION['aviso']);
