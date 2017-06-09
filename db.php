@@ -6,7 +6,7 @@ global $env;
 $db = new mysqli(
     $env->get('DB_HOST', 'localhost'),
     $env->get('DB_USER', 'root'),
-    $env->get('DB_PASSWORD', ''),
+    $env->get('DB_PASSWORD', '123qwe'),
     $env->get('DB_DATABASE', 'playlist')
 );
 

@@ -15,7 +15,7 @@ class Musica
 
     public function cadastrar()
     {
-        $sql = "INSERT INTO playlist (nome , artista, tipo)
+        $sql = "INSERT INTO musicas (nome , artista, tipo)
         VALUES ('{$this->nome}' , '{$this->artista}' , '{$this->tipo}');";
 
         $query = $this->db->query($sql);
