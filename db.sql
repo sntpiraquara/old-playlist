@@ -2,7 +2,7 @@ CREATE DATABASE playlist;
 
 USE playlist;
 
-CREATE table playlist(
+CREATE table musicas(
 id integer ,
 nome varchar(255),
 artista varchar(255),
