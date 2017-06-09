@@ -7,13 +7,12 @@ $musica->nome    = $_POST['nome'];
 $musica->artista = $_POST['artista'];
 $musica->tipo    = $_POST['tipo'];
 
-if (empty($musica->nome) || empty($musica->artista)) {
-    $_SESSION['aviso'] = "campos vazios!";
-    redirect("index.php");
-}
-
 if (isset($_POST['cadastrar'])) {
 
+    if (empty($musica->nome) || empty($musica->artista)) {
+        $_SESSION['aviso'] = "campos vazios!";
+        redirect("index.php");
+    }
     if ($musica->existe()) {
         $_SESSION['aviso'] = "esta musica já existe, tente outra!";
         redirect("index.php");
