@@ -1,5 +1,5 @@
-<?php 
+<?php
 
 global $db;
 
-$db = new mysqli("localhost" , "root" , "123qwe" , "playList");
+$db = new mysqli("localhost", "root", "", "playList");
