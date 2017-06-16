@@ -2,6 +2,7 @@
 
 global $db;
 global $env;
+global $Log;
 
 $db = new mysqli(
     $env->get('DB_HOST', 'localhost'),
@@ -11,5 +12,9 @@ $db = new mysqli(
 );
 
 if ($db->connect_errno) {
-    exit('Não foi possível conectar a base de dados.');
+    $Log->write($db->connect_error);
+
+    exit("Não foi possível conectar a base de dados.");
+
 }
+

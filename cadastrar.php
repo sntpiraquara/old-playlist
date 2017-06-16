@@ -1,10 +1,6 @@
 <?php
 include "include/all.php";
 
-if (!isset($_POST['nome'])) {
-    exit("nao tem nada");
-}
-
 $musica = new Musica;
 
 $musica->nome    = $_POST['nome'];

@@ -9,6 +9,9 @@ class Musica
 
     public function __construct()
     {
+        global $Log;
+        $this->log = $Log;
+
         global $db;
         $this->db = $db;
     }
@@ -21,7 +24,7 @@ class Musica
         $query = $this->db->query($sql);
 
         if (!$query) {
-            $_SESSION['aviso'] = $this->db->error;
+            $this->log->write($this->db->error);
             return false;
         }
 
@@ -49,7 +52,7 @@ class Musica
         $query = $this->db->query($sql);
 
         if (!$query) {
-            $_SESSION['aviso'] = $this->db->error;
+            $this->log->write($this->db->error);
             return false;
         }
 
@@ -62,7 +65,7 @@ class Musica
         $query = $this->db->query($sql);
 
         if (!$query) {
-            $_SESSION['aviso'] = $this->db->error;
+            $this->log->write($this->db->error);
             return false;
         }
 
@@ -75,7 +78,7 @@ class Musica
         $query = $this->db->query($sql);
 
         if (!$query) {
-            $_SESSION['aviso'] = $this->db->error;
+            $this->log->write($this->db->error);
             return false;
         }
 
@@ -94,7 +97,7 @@ class Musica
 
         $rows = [];
         if (!$query) {
-            $_SESSION['aviso'] = $this->db->error;
+            $this->log->write($this->db->error);
             return false;
         }
 
