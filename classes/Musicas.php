@@ -43,12 +43,13 @@ class Musica
         return false;
     }
 
-    public function gerar()
+    public function gerar($numAgi,$numTransic,$numAdor)
     {
         $rows = [];
-
+        // var_dump($numAgi,$numTransic,$numAdor);
+        // exit;
         // Busca músicas agitadas
-        $sql   = "SELECT nome FROM musicas WHERE tipo = 'agitada' ORDER BY RAND() LIMIT 2";
+        $sql   = "SELECT nome,artista FROM musicas WHERE tipo = 'agitada' ORDER BY RAND() LIMIT $numAgi";
         $query = $this->db->query($sql);
 
         if (!$query) {
@@ -61,7 +62,7 @@ class Musica
         }
 
         // Busca músicas de transição
-        $sql   = "SELECT nome FROM musicas WHERE tipo = 'transicao' ORDER BY RAND() LIMIT 1";
+        $sql   = "SELECT nome,artista FROM musicas WHERE tipo = 'transicao' ORDER BY RAND() LIMIT $numTransic";
         $query = $this->db->query($sql);
 
         if (!$query) {
@@ -74,7 +75,7 @@ class Musica
         }
 
         // Busca músicas de adoração
-        $sql   = "SELECT nome FROM musicas WHERE tipo = 'adoracao' ORDER BY RAND() LIMIT 1";
+        $sql   = "SELECT nome,artista FROM musicas WHERE tipo = 'adoracao' ORDER BY RAND() LIMIT $numAdor";
         $query = $this->db->query($sql);
 
         if (!$query) {

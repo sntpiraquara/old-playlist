@@ -60,10 +60,14 @@ $musicas = $_SESSION['musicas'];
             <!-- aqui é gerada uma playlist -->
 
             <form action="gerar.php" method="post">
+                <h3>PlayList</h3>
                 <p>
-                    <h3>PlayList</h3>
-                    <button class="btn btn-primary" name="gerar">Criar PlayList</button>
+                    <input type="number" name="agitada" placeholder="agitada">
+                    <input type="number" name="transicao" placeholder="transição">
+                    <input type="number" name="adoracao" placeholder="adoração">
                 </p>
+                <button class="btn btn-primary" name="gerar">Criar PlayList</button>
+
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -79,8 +83,7 @@ $musicas = $_SESSION['musicas'];
                     </tbody>
                 </table>
                 <?php 
-                $count = count($musica->nome);
-                if ($count > 0) {
+                if (count($musicas) > 0) {
                     echo "<p><button class='btn btn-danger' name='limpar'>Limpar</button></p>";
                 } ?>
             </form>
