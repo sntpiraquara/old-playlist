@@ -2,7 +2,7 @@
 include "include/all.php";
 
 if (!isset($_POST['nome'])) {
-    exit("nao sajs");
+    exit("nao tem nada");
 }
 
 $musica = new Musica;
