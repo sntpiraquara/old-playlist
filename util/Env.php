@@ -14,10 +14,12 @@ class Env
     private function readFile()
     {
         $lines = file($this->file);
+
         foreach ($lines as $line) {
             if (!strstr($line, '=')) {
                 continue;
             }
+
             $line  = explode('=', $line);
             $key   = trim($line[0]);
             $value = trim($line[1]);
