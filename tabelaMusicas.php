@@ -12,12 +12,12 @@
             </tr>
         </thead>
         <tbody>
-
             <?php foreach ($todas as $musica) {?>
             <tr>
                 <form action="editar.php" method="post">
-                    <td><input type="text" name="id" value="<?php echo $musica->id; ?>"
-                    style="width: 20px;" readonly="readonly"> </i></td>
+                    <td><input type="hidden" name ="id" value="<?php echo $musica->id; ?>"></i>
+                        <?php echo $musica->id; ?>
+                    </td>
                     <td><input type="text" name="nome" value="<?php echo $musica->nome; ?>"></td>
                     <td><input type="text" name="artista" value="<?php echo $musica->artista; ?>"></td>
                     <td>
@@ -42,7 +42,7 @@
             </td>
         </form>
     </tr>
-    <?php }?>
+    <?php } ?>
 </tbody>
 
 </table>

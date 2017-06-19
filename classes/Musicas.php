@@ -97,7 +97,7 @@ class Musica
 
         switch ($order) {
             case 'id':
-                $sql .= "ORDER BY id;";
+                $sql .= "ORDER BY id DESC;";
                 break;
 
             case 'nome':
@@ -110,6 +110,9 @@ class Musica
 
             case 'tipo':
                 $sql .= "ORDER BY tipo;";
+                break;
+            default:
+                $sql .= "ORDER BY id DESC;";
                 break;
         }
 

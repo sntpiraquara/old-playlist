@@ -7,12 +7,16 @@ $musica = new Musica;
 if (isset($_GET['by'])) {
 
     $order= $_GET['by'];
+    $_SESSION['order'] = $order;
 
     if ($order) {
         $todas = $musica->all($order);
     } 
+}elseif (isset($_SESSION['order'])) {
+    $order = $_SESSION['order'];
+    $todas = $musica->all($order);
 }else{
-    $todas = $musica->all("nome");
+    $todas = $musica->all("id");
 }
 
 //se nao houver musicas na playList;
