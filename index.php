@@ -1,23 +1,16 @@
 <?php
 include "include/all.php";
 
+$order = "";
 $musica = new Musica;
 
 //ordem da lista de musicas pot nomr,tipo ou artista;
 if (isset($_GET['by'])) {
-
-    $order= $_GET['by'];
+    $order = $_GET['by'];
     $_SESSION['order'] = $order;
-
-    if ($order) {
-        $todas = $musica->all($order);
-    } 
-}elseif (isset($_SESSION['order'])) {
-    $order = $_SESSION['order'];
-    $todas = $musica->all($order);
-}else{
-    $todas = $musica->all("id");
 }
+
+$todas = $musica->all($order);
 
 //se nao houver musicas na playList;
 if (!isset($_SESSION['musicas'])) {

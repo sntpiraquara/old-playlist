@@ -11,14 +11,20 @@ $tipo    = $_POST['tipo'];
 
 $musica = new Musica;
 
-$musica->nome = $nome;
+$musica->nome    = $nome;
 $musica->artista = $artista;
-$musica->tipo = $tipo;
+$musica->tipo    = $tipo;
 
 if (!$musica->editar($id)) {
     $_SESSION['aviso'] = "musica não pode ser editada!";
-    redirect("index.php");
 }else{
-$musica->editar($id);
-redirect("index.php");
+    $musica->editar($id);
 }
+
+$url = 'index.php';
+
+if (isset($_SESSION['order'])) {
+    $url .= "?by=" . $_SESSION['order'];
+}
+
+redirect($url);
