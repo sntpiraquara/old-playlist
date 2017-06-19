@@ -4,7 +4,7 @@
     <table class="table table-bordered table-striped" style="width: 750px;">
         <thead>
             <tr>
-                <th></th>
+                <th><a href="index.php?by=id">Id</a></th>
                 <th><a href="index.php?by=nome">Nome</a></th>
                 <th><i class="fa fa-user"></i><a href="index.php?by=artista">Artista</a></th>
                 <th><a href="index.php?by=tipo">Tipo</a></th>
@@ -16,7 +16,8 @@
             <?php foreach ($todas as $musica) {?>
             <tr>
                 <form action="editar.php" method="post">
-                    <td><i class="fa fa-music"><input type="hidden" name="id" value="<?php echo $musica->id; ?>"> </i></td>
+                    <td><input type="text" name="id" value="<?php echo $musica->id; ?>"
+                    style="width: 20px;" readonly="readonly"> </i></td>
                     <td><input type="text" name="nome" value="<?php echo $musica->nome; ?>"></td>
                     <td><input type="text" name="artista" value="<?php echo $musica->artista; ?>"></td>
                     <td>
@@ -36,7 +37,7 @@
 
             </td>
             <td>
-                <a href="excluir.php?id=<?php echo $cada->id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                <a href="excluir.php?id=<?php echo $musica->id; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                 <button name="editar" class="btn btn-primary"><i class="fa fa-pencil"></i></button>
             </td>
         </form>

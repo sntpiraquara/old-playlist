@@ -96,6 +96,10 @@ class Musica
         $sql   = "SELECT * FROM musicas ";
 
         switch ($order) {
+            case 'id':
+                $sql .= "ORDER BY id;";
+                break;
+
             case 'nome':
                 $sql .= "ORDER BY nome;";
                 break;
@@ -107,7 +111,6 @@ class Musica
             case 'tipo':
                 $sql .= "ORDER BY tipo;";
                 break;
-            
         }
 
 
