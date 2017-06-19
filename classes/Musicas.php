@@ -2,7 +2,7 @@
 
 class Musica
 {
-
+    public $id;
     public $nome;
     public $artista;
     public $tipo;
@@ -91,9 +91,26 @@ class Musica
 
     }
 
-    public function all()
+    public function all($order)
     {
-        $sql   = "SELECT * FROM musicas ORDER BY nome;";
+        $sql   = "SELECT * FROM musicas ";
+
+        switch ($order) {
+            case 'nome':
+                $sql .= "ORDER BY nome;";
+                break;
+
+            case 'artista':
+                $sql .= "ORDER BY artista;";
+                break;
+
+            case 'tipo':
+                $sql .= "ORDER BY tipo;";
+                break;
+            
+        }
+
+
         $query = $this->db->query($sql);
 
         $rows = [];
@@ -108,4 +125,31 @@ class Musica
 
         return $rows;
     }
+
+    public function excluir($id){
+        $sql = "DELETE FROM musicas WHERE id=$id;";
+        $query = $this->db->query($sql);
+
+        if (!query) {
+            $this->log->write($this->db->error);
+            return false;
+        }
+        return true;
+    }
+
+    public function editar($id){
+        $sql = "UPDATE musicas 
+                    SET nome='{$this->nome}', artista='{$this->artista}', tipo='{$this->tipo}' 
+                        WHERE id='{$id}';";
+
+        $query = $this->db->query($sql);
+        if (!$query) {
+            $this->log->write($this->db->error);
+            return false;
+        }
+        return true;
+    }
+
+ 
+    
 }
