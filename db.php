@@ -8,7 +8,8 @@ $db = new mysqli(
     $env->get('DB_HOST', 'localhost'),
     $env->get('DB_USER', 'root'),
     $env->get('DB_PASSWORD', '123qwe'),
-    $env->get('DB_DATABASE', 'playlist')
+    $env->get('DB_DATABASE', 'playlist'),
+    $env->get('DB_PORT', '3306')
 );
 
 if ($db->connect_errno) {
@@ -17,4 +18,3 @@ if ($db->connect_errno) {
     exit("Não foi possível conectar a base de dados.");
 
 }
-
