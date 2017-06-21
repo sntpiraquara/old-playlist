@@ -1,7 +1,3 @@
-FROM richarvey/nginx-php-fpm
+FROM bitnami/php-fpm
 
-ADD . /code
-
-ADD nginx.conf /etc/nginx/sites-enabled/
-
-EXPOSE 80
+ADD . /app

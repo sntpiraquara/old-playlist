@@ -1,4 +1,4 @@
- <?php
+<?php
 
 class Musica
 {
@@ -43,7 +43,7 @@ class Musica
         return false;
     }
 
-    public function gerar($numAgi,$numTransic,$numAdor)
+    public function gerar($numAgi, $numTransic, $numAdor)
     {
         $rows = [];
         // var_dump($numAgi,$numTransic,$numAdor);
@@ -93,7 +93,7 @@ class Musica
 
     public function all($order)
     {
-        $sql   = "SELECT * FROM musicas ";
+        $sql = "SELECT * FROM musicas ";
 
         switch ($order) {
             case 'id':
@@ -116,7 +116,6 @@ class Musica
                 break;
         }
 
-
         $query = $this->db->query($sql);
 
         $rows = [];
@@ -132,8 +131,9 @@ class Musica
         return $rows;
     }
 
-    public function excluir($id){
-        $sql = "DELETE FROM musicas WHERE id=$id;";
+    public function excluir($id)
+    {
+        $sql   = "DELETE FROM musicas WHERE id=$id;";
         $query = $this->db->query($sql);
 
         if (!query) {
@@ -143,9 +143,10 @@ class Musica
         return true;
     }
 
-    public function editar($id){
-        $sql = "UPDATE musicas 
-                    SET nome='{$this->nome}', artista='{$this->artista}', tipo='{$this->tipo}' 
+    public function editar($id)
+    {
+        $sql = "UPDATE musicas
+                    SET nome='{$this->nome}', artista='{$this->artista}', tipo='{$this->tipo}'
                         WHERE id='{$id}';";
 
         $query = $this->db->query($sql);
@@ -156,6 +157,4 @@ class Musica
         return true;
     }
 
- 
-    
 }

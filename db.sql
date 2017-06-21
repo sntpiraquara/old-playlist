@@ -2,10 +2,10 @@ CREATE DATABASE playlist;
 
 USE playlist;
 
-CREATE table musicas(
-    id integer auto_increment ,
-    nome varchar(255),
-    artista varchar(255),
-    tipo varchar(255),
-    primary key(id)
+CREATE TABLE musicas (
+    id INTEGER AUTO_INCREMENT,
+    nome VARCHAR(255),
+    artista VARCHAR(255),
+    tipo VARCHAR(255),
+    PRIMARY KEY(id)
 );
