@@ -1,4 +1,4 @@
-CREATE DATABASE playlist;
+CREATE DATABASE playlist CHARACTER SET uft8mb4 COLLATE uft8mb4_general_ci;
 
 USE playlist;
 
