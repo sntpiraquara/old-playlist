@@ -1,5 +1,5 @@
-FROM bitnami/php-fpm
+FROM richarvey/nginx-php-fpm
 
-ADD . /app
+ADD . /var/www/html
 
-EXPOSE 443 80
+RUN docker-php-ext-install -j$(nproc) mysqli mcrypt
