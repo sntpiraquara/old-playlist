@@ -1,7 +1,7 @@
-<?php
+ <?php
 
-class Musica
-{
+ class Musica
+ {
     public $id;
     public $nome;
     public $artista;
@@ -33,7 +33,7 @@ class Musica
 
     public function existe()
     {
-        $sql   = "SELECT nome FROM musicas WHERE nome = '$this->nome';";
+        $sql   = "SELECT nome, artista FROM musicas WHERE nome = '$this->nome' AND artista = '{$this->artista}';";
         $query = $this->db->query($sql);
 
         if ($query->num_rows > 0) {
@@ -43,7 +43,7 @@ class Musica
         return false;
     }
 
-    public function gerar($numAgi, $numTransic, $numAdor)
+    public function gerar($numAgi,$numTransic,$numAdor)
     {
         $rows = [];
         // var_dump($numAgi,$numTransic,$numAdor);
@@ -93,28 +93,30 @@ class Musica
 
     public function all($order)
     {
-        $sql = "SELECT * FROM musicas ";
+        $sql   = "SELECT * FROM musicas ";
 
         switch ($order) {
             case 'id':
-                $sql .= "ORDER BY id DESC;";
-                break;
+            $sql .= "ORDER BY id DESC;";
+            break;
 
             case 'nome':
-                $sql .= "ORDER BY nome;";
-                break;
+            $sql .= "ORDER BY nome;";
+            break;
 
             case 'artista':
-                $sql .= "ORDER BY artista;";
-                break;
+            $sql .= "ORDER BY artista;";
+            break;
 
             case 'tipo':
-                $sql .= "ORDER BY tipo;";
-                break;
+            $sql .= "ORDER BY tipo;";
+            break;
+            
             default:
-                $sql .= "ORDER BY id DESC;";
-                break;
+            $sql .= "ORDER BY id DESC;";
+            break;
         }
+
 
         $query = $this->db->query($sql);
 
@@ -131,9 +133,8 @@ class Musica
         return $rows;
     }
 
-    public function excluir($id)
-    {
-        $sql   = "DELETE FROM musicas WHERE id=$id;";
+    public function excluir($id){
+        $sql = "DELETE FROM musicas WHERE id=$id;";
         $query = $this->db->query($sql);
 
         if (!query) {
@@ -143,11 +144,10 @@ class Musica
         return true;
     }
 
-    public function editar($id)
-    {
-        $sql = "UPDATE musicas
-                    SET nome='{$this->nome}', artista='{$this->artista}', tipo='{$this->tipo}'
-                        WHERE id='{$id}';";
+    public function editar($id){
+        $sql = "UPDATE musicas 
+        SET nome='{$this->nome}', artista='{$this->artista}', tipo='{$this->tipo}' 
+        WHERE id='{$id}';";
 
         $query = $this->db->query($sql);
         if (!$query) {
@@ -157,4 +157,19 @@ class Musica
         return true;
     }
 
+    public function search($term){
+        $sql = "SELECT * FROM musicas WHERE nome LIKE '%{$term}%';";
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows == 0) {
+            $this->log->write($this->db->error);
+            return false;
+        }
+        while ($row = $query->fetch_object()) {
+            $rows[] = $row;
+        }
+        return $rows;
+    }
+
+    
 }

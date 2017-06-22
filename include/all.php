@@ -14,3 +14,4 @@ include "./db.php";
 
 // Models
 include "./classes/Musicas.php";
+include "./classes/Usuarios.php";
