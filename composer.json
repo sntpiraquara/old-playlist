@@ -1,0 +1,19 @@
+{
+    "name": "playlist",
+    "description": "gerador de playlist para louvor da igreja",
+    "authors": [
+        {
+            "name": "Guilherme de LimaRufino",
+            "email": "guilhermeliima74@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.8",
+        "nesbot/carbon": "^1.22"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
