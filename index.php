@@ -9,7 +9,7 @@ if (!isset($_SESSION["logado"]) || true != $_SESSION["logado"]) {
 // termo e order são uma string
 $term = "";
 $order = "";
-$musica = new Musica;
+$musica = new App\Models\Musica;
 //ordem da lista de musicas por nome, tipo ou artista;
 if (isset($_GET['by'])) {
     $order = $_GET['by'];

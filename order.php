@@ -1,7 +1,7 @@
 <?php 
 include "include/all.php";
 
-$musicas = new Musica;
+$musicas = new App\Models\Musica;
 
 $order = $_GET['by'];
 
