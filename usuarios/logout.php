@@ -1,7 +1,5 @@
 <?php
-include '../include/all2.php';
+include '../include/all.php';
 
-if (true == $_SESSION['logado']) {
-	$_SESSION['logado'] = false;
-	redirect("/usuarios/login.php");
-}
+$controller = new App\Controllers\UsuarioController;
+$controller->logout();

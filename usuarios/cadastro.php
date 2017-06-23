@@ -1,6 +1,6 @@
 <?php 
 $title = "Cadastre-se!";
-include '../include/all2.php';
+include '../include/all.php';
 include "../assets/header.php"; 
 ?>
 <h2>cadastre-se!</h2>
@@ -33,7 +33,7 @@ include "../assets/header.php";
 				<span class="input-group-addon" id="sizing-addon1">
 					<i class="fa fa-lock"></i>
 				</span>
-				<input type="password" class="form-control" placeholder="Senha" aria-describedby="sizing-addon1" name="senha">
+				<input type="password" class="form-control" placeholder="Senha" aria-describedby="sizing-addon1" name="senha" maxlength="8">
 			</div>
 			<?php if (temErro('senha')) {echo temErro('senha');} ?>
 		</p>
@@ -48,6 +48,5 @@ include "../assets/header.php";
 <?php if (isset($_SESSION['erros']) || isset($_SESSION['cadAviso'])) {
 	unset($_SESSION['erros']);
 	unset($_SESSION['cadAviso']);
-}
-?>
+} ?>
 </html>

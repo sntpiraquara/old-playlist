@@ -1,7 +1,7 @@
 <?php 
 $title = "Login!";
 include "../assets/header.php"; 
-include '../include/all2.php';
+include '../include/all.php';
 ?>
 <div class="container">
 	<h2>login</h2>
@@ -21,7 +21,7 @@ include '../include/all2.php';
 					<span class="input-group-addon" id="sizing-addon1">
 						<i class="fa fa-lock"></i>
 					</span>
-					<input type="password" class="form-control" placeholder="Senha" aria-describedby="sizing-addon1" name="senha">
+					<input type="password" class="form-control" placeholder="Senha" aria-describedby="sizing-addon1" name="senha" maxlength="8">
 				</div>
 				<?php if (temErro('senha')) {echo temErro('senha');} ?>
 			</p>
